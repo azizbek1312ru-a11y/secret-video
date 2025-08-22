@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Secret Video</title>
+</head>
+<body>
+  <div id="video-container" style="display:none;">
+    <video width="640" controls>
+      <source src="https://drive.google.com/uc?id=1GwZ_uXmUY8MS47LdbwELjx3qO9wNErJc&export=download" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+
+  <script>
+    const secretKey = "Gulsevar"; // QR kod orqali kirish uchun maxfiy kalit
+    const urlParams = new URLSearchParams(window.location.search);
+    const key = urlParams.get('key');
+
+    if(key === secretKey){
+      document.getElementById('video-container').style.display = 'block';
+    } else {
+      document.body.innerHTML = "<h2>Video topilmadi yoki ruxsat yo‘q</h2>";
+    }
+  </script>
+</body>
+</html>
